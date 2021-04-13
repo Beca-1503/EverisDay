@@ -13,33 +13,23 @@ namespace PizzaEverisDay.Controllers
 {
     public class CadastrarController : Controller
     {
-        public string nome { get; set; }
-        public IList<string> lista { get; set; }
-        
+
         [HttpGet]
         public IActionResult Cadastro()
-        {
-          
+        {        
             return View();
         }
+
         [HttpPost]
-        public ActionResult Cadastro(string Nome, string Sobrenome, string Id)
+        public ActionResult Cadastro(string nome, string dataNascimento, string telefone, string cpf)
         {
-            Pessoa p1 = new Pessoa();
-            p1.Nome = Nome;
-            p1.Sobrenome = Sobrenome;
-            p1.Id = Id;
-            using(var repo = new CrudContext())
+            Cliente cliente = new Cliente(nome, dataNascimento, telefone, cpf);
+            using(var repo = new PizzaContext())
             {
-                repo.Add(p1);
-                repo.SaveChanges(); //devovle um int de quantas linhas foram alteradas
-            }
-            
-            return View("../Home/Index"); 
-        }
-        
+                repo.Add(cliente);
+                repo.SaveChanges(); //devolve um int de quantas linhas foram alteradas
+            }           
+            return View("../Cadastrar/Cadastro"); 
+        }        
     }
-
 }    
-
-

@@ -17,17 +17,17 @@ namespace PizzaEverisDay.Controllers
         [HttpPost]
         public ActionResult Deletar(string IdPessoa)
         {
-            using(var repo = new CrudContext())
+            using(var repo = new PizzaContext())
             {
-                repo.Pessoa.Where(x => x.Id == "2").ToList(); 
-                repo.Pessoa.Remove(new Pessoa() {
+               /* repo.Cliente.Where(x => x.Id == "2").ToList(); 
+                repo.Cliente.Remove(new Cliente() {
                     //Nome = "Gabriel",
                     //Sobrenome = "Benedet",
                     Id = IdPessoa
                 });;
                 repo.SaveChanges();
                 
-                
+                */
                 return Content("Deletado do banco");
             }
         }
