@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace PizzaEverisDay.Models
 {
-    public class CrudContext : DbContext
+    public class PizzaContext : DbContext
     {
-        public DbSet<Pessoa> Pessoa { get; set; }
+        public DbSet<Cliente> Cliente { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=DESKTOP-HSEEB7N;Initial Catalog=Crud;Integrated Security=True");
+            optionsBuilder.UseSqlServer(@"Data Source=LAPTOP-JPN4FCGK\MSSQLSERVER2;Initial Catalog=Pizza;Integrated Security=True");
         }
     }
 }
