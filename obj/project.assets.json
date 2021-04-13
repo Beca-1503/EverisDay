@@ -3827,11 +3827,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Gabriel\\Desktop\\WEB\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
-      "projectName": "WebApplication1",
-      "projectPath": "C:\\Users\\Gabriel\\Desktop\\WEB\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+      "projectUniqueName": "C:\\Users\\Gabriel\\Desktop\\PizzaEverisDay\\PizzaEverisDay\\PizzaEverisDay.csproj",
+      "projectName": "PizzaEverisDay",
+      "projectPath": "C:\\Users\\Gabriel\\Desktop\\PizzaEverisDay\\PizzaEverisDay\\PizzaEverisDay.csproj",
       "packagesPath": "C:\\Users\\Gabriel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Gabriel\\Desktop\\WEB\\WebApplication1\\WebApplication1\\obj\\",
+      "outputPath": "C:\\Users\\Gabriel\\Desktop\\PizzaEverisDay\\PizzaEverisDay\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Gabriel\\AppData\\Roaming\\NuGet\\NuGet.Config",

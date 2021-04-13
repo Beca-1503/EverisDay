@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6xpVzZRj+ZntHDI0lKk5HkLHSiu39yi1IDv1JXWr2ury9mnR7aHtvb3B6Y1CC0Q+RSq4Heo2uOC0Lq6uPvyHwQ==",
+  "dgSpecHash": "kaLDBVg4ye1D0tEuQuf7bi1Aiy8nrnfGX7Ze7BRrXjUD/+TSwG8pwUAHl0IrbuKpUK+u8ldjyngPt04LKOcFXg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Gabriel\\Desktop\\WEB\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+  "projectFilePath": "C:\\Users\\Gabriel\\Desktop\\PizzaEverisDay\\PizzaEverisDay\\PizzaEverisDay.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Gabriel\\.nuget\\packages\\microsoft.csharp\\4.3.0\\microsoft.csharp.4.3.0.nupkg.sha512",
     "C:\\Users\\Gabriel\\.nuget\\packages\\microsoft.entityframeworkcore\\2.0.0-preview1-final\\microsoft.entityframeworkcore.2.0.0-preview1-final.nupkg.sha512",
