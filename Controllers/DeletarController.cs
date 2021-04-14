@@ -15,19 +15,17 @@ namespace PizzaEverisDay.Controllers
         }
 
         [HttpPost]
-        public ActionResult Deletar(string IdPessoa)
+        public ActionResult Deletar(string cpfCliente)
         {
             using(var repo = new PizzaContext())
             {
-               /* repo.Cliente.Where(x => x.Id == "2").ToList(); 
-                repo.Cliente.Remove(new Cliente() {
-                    //Nome = "Gabriel",
-                    //Sobrenome = "Benedet",
-                    Id = IdPessoa
-                });;
+                                
+                repo.Remove(new Cliente ()
+                {                   
+                    CPF = cpfCliente
+                });
                 repo.SaveChanges();
-                
-                */
+
                 return Content("Deletado do banco");
             }
         }
