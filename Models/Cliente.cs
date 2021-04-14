@@ -8,13 +8,9 @@ namespace PizzaEverisDay.Models
 {
     public class Cliente
     {
-        [Required(ErrorMessage = "Campo Obrigatorio*")]
         public string Nome { get; set; }
-        [Required(ErrorMessage = "Campo Obrigatorio*" )]
         public string Data_Nascimento { get; set; }
-        [Required(ErrorMessage = "Campo Obrigatorio*")]
         public string Telefone { get; set; }
-        [Required(ErrorMessage = "Campo Obrigatorio*")]
         [Key] //chave primaria
         public string CPF { get; set; }
         
