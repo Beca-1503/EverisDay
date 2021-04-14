@@ -13,20 +13,18 @@ namespace PizzaEverisDay.Models
         public string Telefone { get; set; }
         [Key] //chave primaria
         public string CPF { get; set; }
-        
 
-        public override string ToString()
+        public Cliente()
         {
-            return "teste";
         }
 
-        //public Cliente(string nome, string data_Nascimento, string telefone, string cpf)
-        //{
-        //    Nome = nome;
-        //    Data_Nascimento = data_Nascimento;
-        //    Telefone = telefone;
-        //    CPF = cpf;
-        //}
+        public Cliente(string nome, string data_Nascimento, string telefone, string cpf)
+        {
+            Nome = nome;
+           Data_Nascimento = data_Nascimento;
+            Telefone = telefone;
+            CPF = cpf;
+        }
 
     }
 }
