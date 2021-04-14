@@ -23,7 +23,11 @@ namespace PizzaEverisDay.Controllers
         [HttpPost]
         public ActionResult Cadastro(string nome, string data_Nascimento, string telefone, string cpf)
         {
-            Cliente cliente = new Cliente(nome, data_Nascimento, telefone, cpf);
+            Cliente cliente = new Cliente();
+            cliente.Nome = nome;
+            cliente.Data_Nascimento = data_Nascimento;
+            cliente.Telefone = telefone;
+            cliente.CPF = cpf;
             using(var repo = new PizzaContext())
             {
                 repo.Add(cliente);
