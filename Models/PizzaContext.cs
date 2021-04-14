@@ -8,10 +8,11 @@ namespace PizzaEverisDay.Models
 {
     public class PizzaContext : DbContext
     {
+        public DbSet<Pedido> Pedido { get; set; }
         public DbSet<Cliente> Cliente { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Pizza;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            optionsBuilder.UseSqlServer(@"Data Source=UDI-CL0DM83\SQLEXPRESS;Database=Pizza;User ID=sa;Password=root@2020;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         }
     }
 }

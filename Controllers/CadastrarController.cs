@@ -26,7 +26,7 @@ namespace PizzaEverisDay.Controllers
             Cliente cliente = new Cliente(nome, data_Nascimento, telefone, cpf);
             using(var repo = new PizzaContext())
             {
-                repo.Add(cliente);
+                repo.Cliente.Add(cliente);
                 repo.SaveChanges(); //devolve um int de quantas linhas foram alteradas
             }           
             return View("../Cadastrar/Cadastro"); 
