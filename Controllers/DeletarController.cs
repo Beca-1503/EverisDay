@@ -26,7 +26,7 @@ namespace PizzaEverisDay.Controllers
                 });
                 repo.SaveChanges();
 
-                return Content("Deletado do banco");
+                return View("Deletar");
             }
         }
     }
