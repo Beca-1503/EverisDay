@@ -1,0 +1,31 @@
+﻿
+@model List<PizzaEverisDay.Models.Produtos>
+
+@{
+    ViewData["Title"] = "Read";
+}
+
+<table class="table">
+    <tr>
+        <th>Nº Produto</th>
+        <th>Nome</th>
+        <th>Preco</th>
+        <th>Tamanho</th>
+        <th>Descricao</th>
+        <th>Quantidade</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id_Produto</td>
+            <td>@item.Nome</td>
+            <td>@item.Preco</td>
+            <td>@item.Tamanho</td>
+            <td>@item.Descricao</td>
+            <td><input type="number" id="quantidade" name="Quantidade" value="Item" /></td>
+        </tr>
+    }
+    <div class="form-group">
+        <input type="submit" value="Proximo" class="btn btn-primary" />
+    </div>
+</table>
