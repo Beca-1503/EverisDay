@@ -1,8 +1,38 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
+<style>
+    #tabelaHome {
+        margin: 10% auto;
+    }
+</style>
 <div class="text-center">
     <h1 class="display-4">Bem Vindo!</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">Segue os pedidos em andamento:</a>.</p>
+    <p>Segue os pedidos em andamento:</p>
+
+    <div class="container col-8 border-1">
+
+        <table class="table-responsive-md" id="tabelaHome">
+
+            <tr>
+                <td class="p-2">
+                    <a class="card p-1 shadow-lg" style=" width: 5rem;" asp-controller="Pedidos" asp-action="Index"> <img src="./lib/img/tags.svg" alt="Pedidos" /> Pedidos </a>
+                </td>
+                <td class="p-2">
+                    <a class="card p-1 shadow-lg" style=" width: 5rem;" asp-controller="Clientes" asp-action="Index"> <img src="./lib/img/person-bounding-box.svg" alt="Cliente" /> Clientes </a>
+                </td>
+                <td class="p-2">
+                    <a class="card p-1 shadow-lg" style=" width: 5rem;" href="#"> <img src="./lib/img/shop-window.svg" alt="Produtos" /> Produtos </a>
+                </td>
+                <td class="p-2">
+                    <a class="card p-1 shadow-lg" style=" width: 5rem;" href="#"> <img src="./lib/img/cart-plus.svg" alt="Carrinho" /> Carrinho </a>
+                </td>
+                <td class="p-2">
+                    <a class="card p-1 shadow-lg" style=" width: 5rem;" href="#"> <img src="./lib/img/calendar2-check.svg" alt="Histórico" /> Histórico </a>
+                </td>
+            </tr>
+
+        </table>
+
+    </div>
 </div>
