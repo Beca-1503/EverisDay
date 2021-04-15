@@ -9,9 +9,10 @@ namespace PizzaEverisDay.Models
     public class PizzaContext : DbContext
     {
         public DbSet<Cliente> Cliente { get; set; }
+        public DbSet<pedido> Pedidos { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=LAPTOP-JPN4FCGK\MSSQLSERVER2;Initial Catalog=Pizza;Integrated Security=True");
+            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-HSEEB7N;Initial Catalog=Pizza;Integrated Security=True");
         }
     }
 }
