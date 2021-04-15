@@ -11,9 +11,9 @@ namespace PizzaEverisDay.Controllers
 {
     public class pedidosController : Controller
     {
-        private readonly pedidoContext _context;
+        private readonly PizzaContext _context;
 
-        public pedidosController(pedidoContext context)
+        public pedidosController(PizzaContext context)
         {
             _context = context;
         }
