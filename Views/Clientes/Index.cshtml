@@ -4,21 +4,11 @@
     ViewData["Title"] = "Index";
 }
 
-<<<<<<< HEAD
 <h1>Clientes</h1>
 
 
 <table class="table table-striped badge-info">
     <thead class="text-dark">
-=======
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
->>>>>>> Layout2
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.CPF)
@@ -35,39 +25,13 @@
             <th></th>
         </tr>
     </thead>
-<<<<<<< HEAD
     <tbody class="text-dark">
-        @foreach (var item in Model) {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CPF)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Nome)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Data_Nascimento)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Telefone)
-                    </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.CPF">Editar</a> |
-                        <a asp-action="Details" asp-route-id="@item.CPF">Detales</a> |
-                        <a asp-action="Delete" asp-route-id="@item.CPF">Deleare</a>
-                    </td>
-                </tr>
-        }
-    </tbody>
-</table>
-<p>
-    <a class="btn-primary p-2" asp-action="Create">Criar Cliente</a>
-</p>
-=======
-    <tbody>
 @foreach (var item in Model) {
         <tr>
             <td>
+                        @Html.DisplayFor(modelItem => item.CPF)
+                    </td>
+                    <td>
                 @Html.DisplayFor(modelItem => item.Nome)
             </td>
             <td>
@@ -77,12 +41,14 @@
                 @Html.DisplayFor(modelItem => item.Telefone)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.CPF">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.CPF">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.CPF">Delete</a>
+                        <a asp-action="Edit" asp-route-id="@item.CPF">Editar</a> |
+                        <a asp-action="Details" asp-route-id="@item.CPF">Detales</a> |
+                        <a asp-action="Delete" asp-route-id="@item.CPF">Deleare</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
->>>>>>> Layout2
+<p>
+    <a class="btn-primary p-2" asp-action="Create">Criar Cliente</a>
+</p>
