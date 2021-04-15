@@ -13,7 +13,11 @@ namespace PizzaEverisDay.Controllers
     {
         private readonly PizzaContext _context;
 
+<<<<<<< HEAD
         public PedidosController(PizzaContext context)
+=======
+        public pedidosController(PizzaContext context)
+>>>>>>> Layout2
         {
             _context = context;
         }
