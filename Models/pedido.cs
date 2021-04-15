@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PizzaEverisDay.Models
 {
-    public class pedido
+    public class Pedido
     {
         [Key]
         public int IdPedido { get; set; }

@@ -8,11 +8,11 @@ namespace PizzaEverisDay.Models
 {
     public class Cliente
     {
+        [Key] //chave primaria
+        public string CPF { get; set; }
         public string Nome { get; set; }
         public string Data_Nascimento { get; set; }
         public string Telefone { get; set; }
-        [Key] //chave primaria
-        public string CPF { get; set; }
 
         public Cliente()
         {
@@ -21,7 +21,7 @@ namespace PizzaEverisDay.Models
         public Cliente(string nome, string data_Nascimento, string telefone, string cpf)
         {
             Nome = nome;
-           Data_Nascimento = data_Nascimento;
+            Data_Nascimento = data_Nascimento;
             Telefone = telefone;
             CPF = cpf;
         }
