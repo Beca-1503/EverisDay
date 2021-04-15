@@ -8,11 +8,10 @@
 <table class="table">
     <tr>
         <th>Nº Produto</th>
-        <th>Nome</th>
+        <th>Produto</th>
         <th>Preco</th>
         <th>Tamanho</th>
         <th>Descricao</th>
-        <th>Quantidade</th>
     </tr>
     @foreach (var item in Model)
     {
@@ -22,10 +21,9 @@
             <td>@item.Preco</td>
             <td>@item.Tamanho</td>
             <td>@item.Descricao</td>
-            <td><input type="number" id="quantidade" name="Quantidade" value="Item" /></td>
         </tr>
     }
-    <div class="form-group">
-        <input type="submit" value="Proximo" class="btn btn-primary" />
-    </div>
 </table>
+<input type="button"
+       value="Retornar"
+       onclick="location.href='<%: http://localhost:21965/Cadastro %>'" />

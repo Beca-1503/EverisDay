@@ -18,12 +18,5 @@ namespace PizzaEverisDay.Controllers
                 return View(data);
             }
         }
-
-        //[HttpPost]
-        //public ActionResult Importar()
-        //{
-
-        //}
-
     }
 }
