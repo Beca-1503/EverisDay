@@ -1,13 +1,13 @@
-﻿@model IEnumerable<PizzaEverisDay.Models.pedido>
+﻿@model IEnumerable<PizzaEverisDay.Models.Pedido>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Pedidos";
 }
 
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Criar Novo</a>
 </p>
 <table class="table">
     <thead>
@@ -43,9 +43,9 @@
                 @Html.DisplayFor(modelItem => item.FormaDePagamento)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdPedido">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdPedido">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdPedido">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.IdPedido">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.IdPedido">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdPedido">Deletar</a>
             </td>
         </tr>
 }

@@ -7,11 +7,14 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Criar Cliente</a>
 </p>
 <table class="table">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CPF)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Nome)
             </th>
