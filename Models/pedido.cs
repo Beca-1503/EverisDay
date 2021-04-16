@@ -10,6 +10,7 @@ namespace PizzaEverisDay.Models
     public class Pedido
     {
         [Key]
+        [Display(Name = "Pedido nº")]
         public int IdPedido { get; set; }
 
         [StringLength(11, MinimumLength = 11, ErrorMessage = "CPF composto de 11 dígitos")]
