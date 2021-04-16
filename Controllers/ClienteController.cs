@@ -39,12 +39,12 @@ namespace PizzaEverisDay.Controllers
             }
         }
         
-        public IActionResult Create()
+        public ActionResult Create()
         {
             return View();
         }
         [HttpPost]
-        public IActionResult Create(string nome, string data_Nascimento, string telefone, string cpf)
+        public ActionResult Create(string nome, string data_Nascimento, string telefone, string cpf)
         {
             Cliente cliente = new Cliente();
             cliente.Nome = nome;

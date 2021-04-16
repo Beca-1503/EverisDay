@@ -9,11 +9,11 @@ using PizzaEverisDay.Models;
 
 namespace PizzaEverisDay.Controllers
 {
-    public class pedidosController : Controller
+    public class PedidosController : Controller
     {
         private readonly PizzaContext _context;
 
-        public pedidosController(PizzaContext context)
+        public PedidosController(PizzaContext context)
         {
             _context = context;
         }
@@ -21,7 +21,7 @@ namespace PizzaEverisDay.Controllers
         // GET: pedidoes
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Pedidos.ToListAsync());
+            return View(await _context.Pedido.ToListAsync());
         }
 
         // GET: pedidoes/Details/5
@@ -32,7 +32,7 @@ namespace PizzaEverisDay.Controllers
                 return NotFound();
             }
 
-            var pedido = await _context.Pedidos
+            var pedido = await _context.Pedido
                 .FirstOrDefaultAsync(m => m.IdPedido == id);
             if (pedido == null)
             {
@@ -43,28 +43,61 @@ namespace PizzaEverisDay.Controllers
         }
 
         // GET: pedidoes/Create
-        public IActionResult Create()
+        public ActionResult Create()
         {
-            return View();
-        }
-
-        // POST: pedidoes/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdPedido,CPF,DataPedido,PrecoTotal,FormaDePagamento")] pedido pedido)
-        {
-            if (ModelState.IsValid)
+            ProdutosParaPedido lista = new ProdutosParaPedido();
+            
+            using (var repo = new PizzaContext())
             {
-                _context.Add(pedido);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(pedido);
+                var data1 = repo.Cliente.ToList();
+                var data = repo.Produtos.ToList();
+                lista.ListaCliente = data1;
+                lista.ListaProduto = data;
+                return View(lista);
+            }          
         }
 
-        // GET: pedidoes/Edit/5
+        [HttpPost]        
+        public ActionResult Cadastrar()
+        {
+            using (var repo = new PizzaContext())
+            {
+                var data = repo.Produtos.ToList();
+                var listaProdutos = new List<Item>();
+                decimal total = 0;
+                foreach (var item in data)
+                {
+                    int quantidade = Convert.ToInt32(Request.Form["Produto[" + item.Id_Produto + "]"].ToString());
+                    if (quantidade > 0)
+                    {
+                        listaProdutos.Add(new Item()
+                        {
+                            Id_Produto = item.Id_Produto,
+                            Preco_Unitario = item.Preco,
+                            Quantidade = quantidade
+                        });
+                    }
+                        total += item.Preco * quantidade;
+                }
+                var pedido = new Pedido();
+                pedido.CPF = Request.Form["CPF"];
+                pedido.Data_Pedido = DateTime.Now.ToString();
+                pedido.Forma_De_Pagamento = Request.Form["FormaPagamento"];
+                pedido.Preco_Total = total;
+
+                repo.Add(pedido);
+                repo.SaveChanges();
+
+                for (int i = 0; i < listaProdutos.Count; i++)
+                {
+                    listaProdutos[i].IdPedido = pedido.IdPedido;
+                }
+                repo.AddRange(listaProdutos);
+                repo.SaveChanges();
+            }
+            return Content("Pedido Realizado!");
+        }
+         
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -72,7 +105,7 @@ namespace PizzaEverisDay.Controllers
                 return NotFound();
             }
 
-            var pedido = await _context.Pedidos.FindAsync(id);
+            var pedido = await _context.Pedido.FindAsync(id);
             if (pedido == null)
             {
                 return NotFound();
@@ -85,7 +118,7 @@ namespace PizzaEverisDay.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdPedido,CPF,DataPedido,PrecoTotal,FormaDePagamento")] pedido pedido)
+        public async Task<IActionResult> Edit(int id, [Bind("IdPedido,CPF,Data_Pedido,Preco_Total,Forma_De_Pagamento")] Pedido pedido)
         {
             if (id != pedido.IdPedido)
             {
@@ -123,7 +156,7 @@ namespace PizzaEverisDay.Controllers
                 return NotFound();
             }
 
-            var pedido = await _context.Pedidos
+            var pedido = await _context.Pedido
                 .FirstOrDefaultAsync(m => m.IdPedido == id);
             if (pedido == null)
             {
@@ -138,15 +171,14 @@ namespace PizzaEverisDay.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var pedido = await _context.Pedidos.FindAsync(id);
-            _context.Pedidos.Remove(pedido);
+            var pedido = await _context.Pedido.FindAsync(id);
+            _context.Pedido.Remove(pedido);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
         private bool pedidoExists(int id)
         {
-            return _context.Pedidos.Any(e => e.IdPedido == id);
+            return _context.Pedido.Any(e => e.IdPedido == id);
         }
     }
 }
