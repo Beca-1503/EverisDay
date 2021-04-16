@@ -9,8 +9,7 @@ namespace PizzaEverisDay.Models
     public class PizzaContext : DbContext
     {
         public DbSet<Pedido> Pedido { get; set; }
-        public DbSet<Cliente> Cliente { get; set; }
-        public DbSet<Pedido> Pedido { get; set; }
+        public DbSet<Cliente> Cliente { get; set; }       
         public DbSet<Endereco> Endereco { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
