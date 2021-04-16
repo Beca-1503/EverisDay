@@ -20,6 +20,8 @@ namespace PizzaEverisDay.Models
         [Required]
         public string Bairro { get; set; }
         [Required]
+        [StringLength(8, MinimumLength = 8, ErrorMessage = "CEP composto de 8 dígitos")]
+        [RegularExpression(@"\d+", ErrorMessage = "Informe um CEP composto apenas de números")]
         public string CEP { get; set; }
     }
 }
