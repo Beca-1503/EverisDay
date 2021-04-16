@@ -25,7 +25,6 @@
             <th></th>
         </tr>
     </thead>
-<<<<<<< HEAD
     <tbody>
 @foreach (var item in Model) {
         <tr>
@@ -48,31 +47,6 @@
             </td>
         </tr>
 }
-=======
-    <tbody class="text-dark">
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td >
-                    @Html.DisplayFor(modelItem => item.CPF)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DataPedido)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PrecoTotal)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FormaDePagamento)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.IdPedido">Editar</a> |
-                    <a asp-action="Details" asp-route-id="@item.IdPedido">Detalhes</a> |
-                    <a asp-action="Delete" asp-route-id="@item.IdPedido">Deletar</a>
-                </td>
-            </tr>
-        }
->>>>>>> Layout
     </tbody>
 </table>
 <div>

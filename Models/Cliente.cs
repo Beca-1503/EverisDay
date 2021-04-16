@@ -9,7 +9,6 @@ namespace PizzaEverisDay.Models
 {
     public class Cliente
     {
-<<<<<<< HEAD
         [Key]
         [StringLength(11, MinimumLength = 11, ErrorMessage = "CPF composto de 11 dígitos")]
         [Required]
@@ -18,19 +17,9 @@ namespace PizzaEverisDay.Models
         [Required]
         public string Nome { get; set; }
         [Display(Name = "Data de Nascimento")]
-=======
-        [Key] //chave primaria
-        public string CPF { get; set; }
-        public string Nome { get; set; }
-        [Column("DATA_NASCIMENTO")]
->>>>>>> Layout
         public string Data_Nascimento { get; set; }
         [RegularExpression(@"\d+", ErrorMessage = "Informe o telefone composto apenas de números")]
         public string Telefone { get; set; }
-<<<<<<< HEAD
-=======
-
->>>>>>> Layout
 
         public Cliente()
         {

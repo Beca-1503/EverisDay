@@ -17,13 +17,8 @@ namespace PizzaEverisDay.Controllers
         {
             _context = context;
         }
-<<<<<<< HEAD
 
         // GET: Pedidos
-=======
-        
-        // GET: pedidoes
->>>>>>> Layout
         public async Task<IActionResult> Index()
         {
             return View(await _context.Pedido.ToListAsync());
@@ -58,11 +53,7 @@ namespace PizzaEverisDay.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-<<<<<<< HEAD
         public async Task<IActionResult> Create([Bind("IdPedido,CPF,Data_Pedido,Preco_Total,Forma_De_Pagamento")] Pedido pedido)
-=======
-        public async Task<IActionResult> Create([Bind("IdPedido,CPF,DataPedido,PrecoTotal,FormaDePagamento")] Pedido pedido)
->>>>>>> Layout
         {
             if (ModelState.IsValid)
             {
@@ -94,11 +85,7 @@ namespace PizzaEverisDay.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-<<<<<<< HEAD
         public async Task<IActionResult> Edit(int id, [Bind("IdPedido,CPF,Data_Pedido,Preco_Total,Forma_De_Pagamento")] Pedido pedido)
-=======
-        public async Task<IActionResult> Edit(int id, [Bind("IdPedido,CPF,DataPedido,PrecoTotal,FormaDePagamento")] Pedido pedido)
->>>>>>> Layout
         {
             if (id != pedido.IdPedido)
             {
