@@ -6,13 +6,18 @@ using System.Threading.Tasks;
 
 namespace PizzaEverisDay.Models
 {
-    public class pedido
+    public class Pedido
     {
         [Key]
         public int IdPedido { get; set; }
         public string CPF { get; set; }
-        public string DataPedido { get; set; }
-        public double PrecoTotal { get; set; }
-        public string FormaDePagamento { get; set; }
+        public string Data_Pedido { get; set; }
+        public decimal Preco_Total { get; set; }
+        public string Forma_De_Pagamento { get; set; }
+
+        public Pedido()
+        {
+
+        }
     }
 }

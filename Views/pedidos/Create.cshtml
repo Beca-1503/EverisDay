@@ -1,4 +1,4 @@
-﻿@model PizzaEverisDay.Models.pedido
+﻿@model PizzaEverisDay.Models.ProdutosParaPedido
 
 @{
     ViewData["Title"] = "Create";
@@ -9,40 +9,60 @@
 <h4>pedido</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="CPF" class="control-label"></label>
-                <input asp-for="CPF" class="form-control" />
-                <span asp-validation-for="CPF" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DataPedido" class="control-label"></label>
-                <input asp-for="DataPedido" class="form-control" />
-                <span asp-validation-for="DataPedido" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PrecoTotal" class="control-label"></label>
-                <input asp-for="PrecoTotal" class="form-control" />
-                <span asp-validation-for="PrecoTotal" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FormaDePagamento" class="control-label"></label>
-                <input asp-for="FormaDePagamento" class="form-control" />
-                <span asp-validation-for="FormaDePagamento" class="text-danger"></span>
-            </div>
+    <div class="col-md-12">
+        <form asp-action="Cadastrar">
+            <select name="CPF">
+                @foreach (var item in Model.ListaCliente)
+                {
+                    <option value="@item.CPF">
+                        @item.Nome
+                    </option>
+                }
+            </select>
+            <select name="FormaPagamento">
+
+                <option value="Dinheiro">
+                    Dinheiro
+                </option>
+                <option value="Cartão de Crédito">
+                    Cartão de Crédito
+                </option>
+                <option value="Cartão de Débito">
+                    Cartão de Débito
+                </option>
+
+            </select>
+            <table class="table">
+                <tr>
+                    <th>Nº Produto</th>
+                    <th>Produto</th>
+                    <th>Preco</th>
+                    <th>Tamanho</th>
+                    <th>Descricao</th>
+                    <th>Quantidade</th>
+                </tr>
+                @foreach (var item in Model.ListaProduto)
+                {
+                    <tr>
+                        <td>@item.Id_Produto</td>
+                        <td>@item.Nome</td>
+                        <td>@item.Preco</td>
+                        <td>@item.Tamanho</td>
+                        <td>@item.Descricao</td>
+                        <td><input type="number" name="Produto[@item.Id_Produto]" value="0" min="0" /></td>
+
+                    </tr>
+                }
+            </table>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
-
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
-
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
