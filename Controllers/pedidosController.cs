@@ -24,6 +24,8 @@ namespace PizzaEverisDay.Controllers
             return View(await _context.Pedido.ToListAsync());
         }
 
+
+
         // GET: pedidoes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -84,6 +86,7 @@ namespace PizzaEverisDay.Controllers
                 pedido.Data_Pedido = DateTime.Now.ToString();
                 pedido.Forma_De_Pagamento = Request.Form["FormaPagamento"];
                 pedido.Preco_Total = total;
+                pedido.Status_Pedido = Request.Form["StatusDoPedido"];
 
                 repo.Add(pedido);
                 repo.SaveChanges();

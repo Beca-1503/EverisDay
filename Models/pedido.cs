@@ -24,5 +24,7 @@ namespace PizzaEverisDay.Models
         [Required]
         [Display(Name = "Forma de Pagamento")]
         public string Forma_De_Pagamento { get; set; }
+        [Display(Name = "Status do Pedido")]
+        public string Status_Pedido { get; set; }
     }
 }
