@@ -1,0 +1,1 @@
+insert into CIDADE (IDUF, NOME) values ('1', 'Florianópolis');
