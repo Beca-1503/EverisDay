@@ -24,30 +24,41 @@
             <th>
                 @Html.DisplayNameFor(model => model.Forma_De_Pagamento)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status_Pedido)
+            </th>
             <th></th>
         </tr>
     </thead>
+
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CPF)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Data_Pedido)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Preco_Total)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Forma_De_Pagamento)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdPedido">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdPedido">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdPedido">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.Reverse())
+        {  
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CPF)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Data_Pedido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Preco_Total)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Forma_De_Pagamento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status_Pedido)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.IdPedido">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.IdPedido">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.IdPedido">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+<div class="form-group">
+    <input type="submit" value="Salvar" class="btn btn-primary" />
+</div>
