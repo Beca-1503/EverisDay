@@ -1,4 +1,4 @@
-﻿@model PizzaEverisDay.Models.pedido
+﻿@model PizzaEverisDay.Models.Pedido
 
 @{
     ViewData["Title"] = "Details";
@@ -7,32 +7,32 @@
 <h1>Details</h1>
 
 <div>
-    <h4>pedido</h4>
+    <h4>Pedido</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.CPF)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.CPF)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DataPedido)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Data_Pedido)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DataPedido)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Data_Pedido)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PrecoTotal)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Preco_Total)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PrecoTotal)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Preco_Total)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FormaDePagamento)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Forma_De_Pagamento)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FormaDePagamento)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Forma_De_Pagamento)
         </dd>
     </dl>
 </div>

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PizzaEverisDay.Models.pedido>
+﻿@model IEnumerable<PizzaEverisDay.Models.Pedido>
 
 @{
     ViewData["Title"] = "Index";
@@ -16,13 +16,13 @@
                 @Html.DisplayNameFor(model => model.CPF)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DataPedido)
+                @Html.DisplayNameFor(model => model.Data_Pedido)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PrecoTotal)
+                @Html.DisplayNameFor(model => model.Preco_Total)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FormaDePagamento)
+                @Html.DisplayNameFor(model => model.Forma_De_Pagamento)
             </th>
             <th></th>
         </tr>
@@ -34,13 +34,13 @@
                 @Html.DisplayFor(modelItem => item.CPF)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DataPedido)
+                @Html.DisplayFor(modelItem => item.Data_Pedido)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.PrecoTotal)
+                @Html.DisplayFor(modelItem => item.Preco_Total)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.FormaDePagamento)
+                @Html.DisplayFor(modelItem => item.Forma_De_Pagamento)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.IdPedido">Edit</a> |

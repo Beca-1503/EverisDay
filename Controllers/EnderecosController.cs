@@ -9,22 +9,22 @@ using PizzaEverisDay.Models;
 
 namespace PizzaEverisDay.Controllers
 {
-    public class PedidosController : Controller
+    public class EnderecosController : Controller
     {
         private readonly PizzaContext _context;
 
-        public PedidosController(PizzaContext context)
+        public EnderecosController(PizzaContext context)
         {
             _context = context;
         }
 
-        // GET: Pedidos
+        // GET: Enderecos
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Pedido.ToListAsync());
+            return View(await _context.Endereco.ToListAsync());
         }
 
-        // GET: Pedidos/Details/5
+        // GET: Enderecos/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -32,39 +32,39 @@ namespace PizzaEverisDay.Controllers
                 return NotFound();
             }
 
-            var pedido = await _context.Pedido
-                .FirstOrDefaultAsync(m => m.IdPedido == id);
-            if (pedido == null)
+            var endereco = await _context.Endereco
+                .FirstOrDefaultAsync(m => m.IdEndereco == id);
+            if (endereco == null)
             {
                 return NotFound();
             }
 
-            return View(pedido);
+            return View(endereco);
         }
 
-        // GET: Pedidos/Create
+        // GET: Enderecos/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Pedidos/Create
+        // POST: Enderecos/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdPedido,CPF,Data_Pedido,Preco_Total,Forma_De_Pagamento")] Pedido pedido)
+        public async Task<IActionResult> Create([Bind("IdEndereco,IdCidade,Logradouro,Numero,Complemento,Bairro,CEP")] Endereco endereco)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(pedido);
+                _context.Add(endereco);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(pedido);
+            return View(endereco);
         }
 
-        // GET: Pedidos/Edit/5
+        // GET: Enderecos/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -72,22 +72,22 @@ namespace PizzaEverisDay.Controllers
                 return NotFound();
             }
 
-            var pedido = await _context.Pedido.FindAsync(id);
-            if (pedido == null)
+            var endereco = await _context.Endereco.FindAsync(id);
+            if (endereco == null)
             {
                 return NotFound();
             }
-            return View(pedido);
+            return View(endereco);
         }
 
-        // POST: Pedidos/Edit/5
+        // POST: Enderecos/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdPedido,CPF,Data_Pedido,Preco_Total,Forma_De_Pagamento")] Pedido pedido)
+        public async Task<IActionResult> Edit(int id, [Bind("IdEndereco,IdCidade,Logradouro,Numero,Complemento,Bairro,CEP")] Endereco endereco)
         {
-            if (id != pedido.IdPedido)
+            if (id != endereco.IdEndereco)
             {
                 return NotFound();
             }
@@ -96,12 +96,12 @@ namespace PizzaEverisDay.Controllers
             {
                 try
                 {
-                    _context.Update(pedido);
+                    _context.Update(endereco);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PedidoExists(pedido.IdPedido))
+                    if (!EnderecoExists(endereco.IdEndereco))
                     {
                         return NotFound();
                     }
@@ -112,10 +112,10 @@ namespace PizzaEverisDay.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(pedido);
+            return View(endereco);
         }
 
-        // GET: Pedidos/Delete/5
+        // GET: Enderecos/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -123,30 +123,30 @@ namespace PizzaEverisDay.Controllers
                 return NotFound();
             }
 
-            var pedido = await _context.Pedido
-                .FirstOrDefaultAsync(m => m.IdPedido == id);
-            if (pedido == null)
+            var endereco = await _context.Endereco
+                .FirstOrDefaultAsync(m => m.IdEndereco == id);
+            if (endereco == null)
             {
                 return NotFound();
             }
 
-            return View(pedido);
+            return View(endereco);
         }
 
-        // POST: Pedidos/Delete/5
+        // POST: Enderecos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var pedido = await _context.Pedido.FindAsync(id);
-            _context.Pedido.Remove(pedido);
+            var endereco = await _context.Endereco.FindAsync(id);
+            _context.Endereco.Remove(endereco);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool PedidoExists(int id)
+        private bool EnderecoExists(int id)
         {
-            return _context.Pedido.Any(e => e.IdPedido == id);
+            return _context.Endereco.Any(e => e.IdEndereco == id);
         }
     }
 }

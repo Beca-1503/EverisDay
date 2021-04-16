@@ -9,85 +9,85 @@ using PizzaEverisDay.Models;
 
 namespace PizzaEverisDay.Controllers
 {
-    public class PedidosController : Controller
+    public class ClientesController : Controller
     {
         private readonly PizzaContext _context;
 
-        public PedidosController(PizzaContext context)
+        public ClientesController(PizzaContext context)
         {
             _context = context;
         }
 
-        // GET: Pedidos
+        // GET: Clientes
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Pedido.ToListAsync());
+            return View(await _context.Cliente.ToListAsync());
         }
 
-        // GET: Pedidos/Details/5
-        public async Task<IActionResult> Details(int? id)
+        // GET: Clientes/Details/5
+        public async Task<IActionResult> Details(string id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var pedido = await _context.Pedido
-                .FirstOrDefaultAsync(m => m.IdPedido == id);
-            if (pedido == null)
+            var cliente = await _context.Cliente
+                .FirstOrDefaultAsync(m => m.CPF == id);
+            if (cliente == null)
             {
                 return NotFound();
             }
 
-            return View(pedido);
+            return View(cliente);
         }
 
-        // GET: Pedidos/Create
+        // GET: Clientes/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Pedidos/Create
+        // POST: Clientes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdPedido,CPF,Data_Pedido,Preco_Total,Forma_De_Pagamento")] Pedido pedido)
+        public async Task<IActionResult> Create([Bind("CPF,Nome,Data_Nascimento,Telefone")] Cliente cliente)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(pedido);
+                _context.Add(cliente);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(pedido);
+            return View(cliente);
         }
 
-        // GET: Pedidos/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        // GET: Clientes/Edit/5
+        public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var pedido = await _context.Pedido.FindAsync(id);
-            if (pedido == null)
+            var cliente = await _context.Cliente.FindAsync(id);
+            if (cliente == null)
             {
                 return NotFound();
             }
-            return View(pedido);
+            return View(cliente);
         }
 
-        // POST: Pedidos/Edit/5
+        // POST: Clientes/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdPedido,CPF,Data_Pedido,Preco_Total,Forma_De_Pagamento")] Pedido pedido)
+        public async Task<IActionResult> Edit(string id, [Bind("CPF,Nome,Data_Nascimento,Telefone")] Cliente cliente)
         {
-            if (id != pedido.IdPedido)
+            if (id != cliente.CPF)
             {
                 return NotFound();
             }
@@ -96,12 +96,12 @@ namespace PizzaEverisDay.Controllers
             {
                 try
                 {
-                    _context.Update(pedido);
+                    _context.Update(cliente);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PedidoExists(pedido.IdPedido))
+                    if (!ClienteExists(cliente.CPF))
                     {
                         return NotFound();
                     }
@@ -112,41 +112,41 @@ namespace PizzaEverisDay.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(pedido);
+            return View(cliente);
         }
 
-        // GET: Pedidos/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        // GET: Clientes/Delete/5
+        public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var pedido = await _context.Pedido
-                .FirstOrDefaultAsync(m => m.IdPedido == id);
-            if (pedido == null)
+            var cliente = await _context.Cliente
+                .FirstOrDefaultAsync(m => m.CPF == id);
+            if (cliente == null)
             {
                 return NotFound();
             }
 
-            return View(pedido);
+            return View(cliente);
         }
 
-        // POST: Pedidos/Delete/5
+        // POST: Clientes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var pedido = await _context.Pedido.FindAsync(id);
-            _context.Pedido.Remove(pedido);
+            var cliente = await _context.Cliente.FindAsync(id);
+            _context.Cliente.Remove(cliente);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool PedidoExists(int id)
+        private bool ClienteExists(string id)
         {
-            return _context.Pedido.Any(e => e.IdPedido == id);
+            return _context.Cliente.Any(e => e.CPF == id);
         }
     }
 }
