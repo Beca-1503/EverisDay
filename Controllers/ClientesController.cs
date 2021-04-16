@@ -68,7 +68,7 @@ namespace PizzaEverisDay.Controllers
             {
                 repo.Add(cliente);
                 repo.Add(endereco);
-                repo.SaveChanges();
+                await repo.SaveChangesAsync();
             }
             return View(RetornaCidades());
         }
@@ -163,7 +163,6 @@ namespace PizzaEverisDay.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
         private bool ClienteExists(string id)
         {
             return _context.Cliente.Any(e => e.CPF == id);

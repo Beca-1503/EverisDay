@@ -49,10 +49,10 @@ namespace PizzaEverisDay.Controllers
             
             using (var repo = new PizzaContext())
             {
-                var data1 = repo.Cliente.ToList();
-                var data = repo.Produtos.ToList();
-                lista.ListaCliente = data1;
-                lista.ListaProduto = data;
+                var clientes = repo.Cliente.ToList();
+                var produtos = repo.Produtos.ToList();
+                lista.ListaCliente = clientes;
+                lista.ListaProduto = produtos;
                 return View(lista);
             }          
         }
