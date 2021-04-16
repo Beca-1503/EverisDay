@@ -121,7 +121,7 @@ namespace PizzaEverisDay.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdPedido,CPF,Data_Pedido,Preco_Total,Forma_De_Pagamento")] Pedido pedido)
+        public async Task<IActionResult> Edit(int id, [Bind("IdPedido,CPF,Data_Pedido,Preco_Total,Forma_De_Pagamento,Status_Pedido")] Pedido pedido)
         {
             if (id != pedido.IdPedido)
             {

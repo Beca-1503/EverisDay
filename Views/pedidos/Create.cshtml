@@ -30,7 +30,24 @@
                 <option value="Cartão de Débito">
                     Cartão de Débito
                 </option>
+            </select>           
+            <select name="StatusDoPedido">
 
+                <option value="Em andamento">
+                    Em Andamento
+                </option>
+                <option value="A caminho">
+                    A caminho
+                </option>
+                <option value="Entregue">
+                    Entregue
+                </option>
+                <option value="Concluido">
+                    Concluido
+                </option>
+                <option value="Cancelado">
+                    Cancelado
+                </option>
             </select>
             <table class="table">
                 <tr>
@@ -50,7 +67,6 @@
                         <td>@item.Tamanho</td>
                         <td>@item.Descricao</td>
                         <td><input type="number" name="Produto[@item.Id_Produto]" value="0" min="0" /></td>
-
                     </tr>
                 }
             </table>
