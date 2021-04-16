@@ -9,22 +9,14 @@ namespace PizzaEverisDay.Models
 {
     public class PizzaContext : DbContext
     {
-<<<<<<< HEAD
-        public DbSet<Cliente> Cliente { get; set; }
-        public DbSet<Pedido> Pedido { get; set; }
-        public DbSet<Produtos> Produtos { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(@"Data Source=LAPTOP-JPN4FCGK\MSSQLSERVER2;Initial Catalog=Pizza;Integrated Security=True");
-=======
         public DbSet<Pedido> Pedido { get; set; }
-        public DbSet<Cliente> Cliente { get; set; }       
+        public DbSet<Cliente> Cliente { get; set; }
         public DbSet<Endereco> Endereco { get; set; }
+        public DbSet<Produtos> Produtos { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Pizza;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
->>>>>>> pizzaEntityCarrinho
         }
 
         public DbSet<PizzaEverisDay.Models.Item> Item { get; set; }
