@@ -11,10 +11,10 @@ namespace PizzaEverisDay.Models
         [Key]
         public int Id_Produto { get; set; }
         public string Nome { get; set; }
+        [Display(Name = "Preço")]
         public decimal Preco { get; set; }
         public string Tamanho { get; set; }
+        [Display(Name = "Descrição")]
         public string Descricao { get; set; }
-
-
     }
 }

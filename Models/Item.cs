@@ -12,6 +12,7 @@ namespace PizzaEverisDay.Models
         public int IdItem { get; set; }
         public int IdPedido { get; set; }
         public int Quantidade { get; set; }
+        [Display(Name = "Preço Unitário")]
         public decimal Preco_Unitario { get; set; }
         public int Id_Produto { get; set; }
 
