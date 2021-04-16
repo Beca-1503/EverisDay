@@ -24,6 +24,8 @@ namespace PizzaEverisDay.Controllers
             return View(await _context.Pedido.ToListAsync());
         }
 
+
+
         // GET: pedidoes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -84,6 +86,7 @@ namespace PizzaEverisDay.Controllers
                 pedido.Data_Pedido = DateTime.Now.ToString();
                 pedido.Forma_De_Pagamento = Request.Form["FormaPagamento"];
                 pedido.Preco_Total = total;
+                pedido.Status_Pedido = Request.Form["StatusDoPedido"];
 
                 repo.Add(pedido);
                 repo.SaveChanges();
@@ -118,7 +121,7 @@ namespace PizzaEverisDay.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdPedido,CPF,Data_Pedido,Preco_Total,Forma_De_Pagamento")] Pedido pedido)
+        public async Task<IActionResult> Edit(int id, [Bind("IdPedido,CPF,Data_Pedido,Preco_Total,Forma_De_Pagamento,Status_Pedido")] Pedido pedido)
         {
             if (id != pedido.IdPedido)
             {
