@@ -4994,8 +4994,8 @@ a.badge-secondary:focus, a.badge-secondary.focus {
 }
 
 .badge-success {
-  color: #fff;
-  background-color: #28a745;
+    color: #fff;
+    background-color: #c3f7cf;
 }
 
 a.badge-success:hover, a.badge-success:focus {
@@ -5009,8 +5009,8 @@ a.badge-success:focus, a.badge-success.focus {
 }
 
 .badge-info {
-  color: #fff;
-  background-color: #17a2b8;
+    color: #fff;
+    background-color: #f0f9fa;
 }
 
 a.badge-info:hover, a.badge-info:focus {
@@ -5024,8 +5024,8 @@ a.badge-info:focus, a.badge-info.focus {
 }
 
 .badge-warning {
-  color: #212529;
-  background-color: #ffc107;
+    color: #212529;
+    background-color: #ffecb3;
 }
 
 a.badge-warning:hover, a.badge-warning:focus {
@@ -5039,8 +5039,8 @@ a.badge-warning:focus, a.badge-warning.focus {
 }
 
 .badge-danger {
-  color: #fff;
-  background-color: #dc3545;
+    color: #fff;
+    background-color: #f77481;
 }
 
 a.badge-danger:hover, a.badge-danger:focus {

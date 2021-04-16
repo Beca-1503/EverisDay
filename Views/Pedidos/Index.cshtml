@@ -1,0 +1,55 @@
+﻿@model IEnumerable<PizzaEverisDay.Models.Pedido>
+
+@{
+    ViewData["Title"] = "Pedidos";
+}
+
+<h1>Pedidos</h1>
+
+
+<table class="table table-striped badge-info">
+    <thead class="text-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CPF)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataPedido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrecoTotal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FormaDePagamento)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody class="text-dark">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td >
+                    @Html.DisplayFor(modelItem => item.CPF)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataPedido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PrecoTotal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FormaDePagamento)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.IdPedido">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.IdPedido">Detalhes</a> |
+                    <a asp-action="Delete" asp-route-id="@item.IdPedido">Deletar</a>
+                </td>
+            </tr>
+        }
+    </tbodyclass="text-dark">
+</table>
+<div>
+    <a class="btn-primary p-2" asp-controller="Pedidos" asp-action="Create">Criar Novo</a>
+</div>

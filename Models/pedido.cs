@@ -15,6 +15,7 @@ namespace PizzaEverisDay.Models
         [Required]
         [RegularExpression(@"\d+", ErrorMessage = "Informe um CPF composto apenas de números")]
         public string CPF { get; set; }
+<<<<<<< HEAD
         [Required]
         [Display(Name = "Data")]
         public string Data_Pedido { get; set; }
@@ -24,5 +25,13 @@ namespace PizzaEverisDay.Models
         [Required]
         [Display(Name = "Forma de Pagamento")]
         public string Forma_De_Pagamento { get; set; }
+=======
+        [Column ("DATA_PEDIDO")]
+        public string DataPedido { get; set; }
+        [Column("PRECO_TOTAL")]
+        public decimal PrecoTotal { get; set; }
+        [Column("FORMA_DE_PAGAMENTO")]
+        public string FormaDePagamento { get; set; }
+>>>>>>> Layout
     }
 }
