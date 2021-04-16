@@ -9,6 +9,7 @@ namespace PizzaEverisDay.Models
     {
         public List<Produtos> ListaProduto = new List<Produtos>();
         public List<Cliente> ListaCliente = new List<Cliente>();
+        public List<Cidade> ListaCidade = new List<Cidade>();
             
     }
 }

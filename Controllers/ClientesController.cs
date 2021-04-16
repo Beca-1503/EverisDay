@@ -33,7 +33,7 @@ namespace PizzaEverisDay.Controllers
             }
 
             var cliente = await _context.Cliente
-                .FirstOrDefaultAsync(m => m.CPF == id);
+           .FirstOrDefaultAsync(m => m.CPF == id);
             if (cliente == null)
             {
                 return NotFound();
@@ -42,26 +42,46 @@ namespace PizzaEverisDay.Controllers
             return View(cliente);
         }
 
-        // GET: Clientes/Create
-        public IActionResult Create()
+        public ActionResult Create()
         {
-            return View();
+            return View(RetornaCidades());
         }
-
-        // POST: Clientes/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CPF,Nome,Data_Nascimento,Telefone")] Cliente cliente)
+        public async Task<IActionResult> Create(string nome, string data_Nascimento, string telefone, string cpf, string logradouro, int numero, string complemento, string bairro, string cep)
         {
-            if (ModelState.IsValid)
+
+            Endereco endereco = new Endereco();
+            endereco.Logradouro = logradouro;
+            endereco.Numero = numero;
+            endereco.Complemento = complemento;
+            endereco.Bairro = bairro;
+            endereco.CEP = cep;
+            endereco.IdCidade = Convert.ToInt32(Request.Form["IdCidade"]);
+
+            Cliente cliente = new Cliente();
+            cliente.Nome = nome;
+            cliente.Data_Nascimento = data_Nascimento;
+            cliente.Telefone = telefone;
+            cliente.CPF = cpf;
+            using (var repo = new PizzaContext())
             {
-                _context.Add(cliente);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                repo.Add(cliente);
+                repo.Add(endereco);
+                repo.SaveChanges();
             }
-            return View(cliente);
+            return View(RetornaCidades());
+        }
+        public ProdutosParaPedido RetornaCidades()
+        {
+            ProdutosParaPedido listaCidade = new ProdutosParaPedido();
+
+            using (var repo = new PizzaContext())
+            {
+                var cidade = repo.Cidade.ToList();
+                listaCidade.ListaCidade = cidade;
+            }
+            return listaCidade;
         }
 
         // GET: Clientes/Edit/5
@@ -124,7 +144,7 @@ namespace PizzaEverisDay.Controllers
             }
 
             var cliente = await _context.Cliente
-                .FirstOrDefaultAsync(m => m.CPF == id);
+           .FirstOrDefaultAsync(m => m.CPF == id);
             if (cliente == null)
             {
                 return NotFound();
