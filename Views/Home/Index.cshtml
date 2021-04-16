@@ -1,38 +1,46 @@
-﻿@{
+﻿<!--VERSÂO MASTER-->
+@{
     ViewData["Title"] = "Home Page";
 }
-<style>
-    #tabelaHome {
-        margin: 10% auto;
-    }
-</style>
+
+<link href="~/css/home.css" rel="stylesheet">
+
 <div class="text-center">
-    <h1 class="display-4">Bem Vindo!</h1>
-    <p>Segue os pedidos em andamento:</p>
+    <h1 class="display-4 danger"><b>Bem Vindo!</b></h1>
+    <p>Você tem permissões para:</p>
 
-    <div class="container col-8 border-1">
+    <div class="container col-9 border-1">
 
-        <table class="table-responsive-md" id="tabelaHome">
+        <table class="table-responsive-md">
 
             <tr>
-                <td class="p-2">
-                    <a class="card p-1 shadow-lg" style=" width: 5rem;" asp-controller="Pedidos" asp-action="Index"> <img src="./lib/img/tags.svg" alt="Pedidos" /> Pedidos </a>
+                <td class="container-tabela">
+                    <a class="card p-3" style=" width: 10rem;" asp-controller="Pedidos" asp-action="Index">
+                        <img src="./lib/img/tags.svg" alt="Pedidos" />
+                        <p>Pedidos</p>
+                    </a>
                 </td>
-                <td class="p-2">
-                    <a class="card p-1 shadow-lg" style=" width: 5rem;" asp-controller="Clientes" asp-action="Index"> <img src="./lib/img/person-bounding-box.svg" alt="Cliente" /> Clientes </a>
+                <td class="container-tabela">
+                    <a class="card p-3" style=" width: 10rem;" asp-controller="Clientes" asp-action="Index">
+                        <img src="./lib/img/person-bounding-box.svg" alt="Cliente" />
+                        <p>Clientes</p>
+                    </a>
                 </td>
-                <td class="p-2">
-                    <a class="card p-1 shadow-lg" style=" width: 5rem;" asp-controller="Produtos" asp-action="Index"> <img src="./lib/img/shop-window.svg" alt="Produtos" /> Produtos </a>
+                <td class="container-tabela">
+                    <a class="card p-3" style=" width: 10rem;" href="#">
+                        <img src="./lib/img/shop-window.svg" alt="Produtos" />
+                        <p>Produtos</p>
+                    </a>
                 </td>
-                <td class="p-2">
-                    <a class="card p-1 shadow-lg" style=" width: 5rem;" href="#"> <img src="./lib/img/cart-plus.svg" alt="Carrinho" /> Carrinho </a>
+                <td class="container-tabela">
+                    <a class="card p-3" style=" width: 10rem;" href="#"> <img src="./lib/img/cart-plus.svg" alt="Carrinho" /> <p>Carrinho</p> </a>
                 </td>
-                <td class="p-2">
-                    <a class="card p-1 shadow-lg" style=" width: 5rem;" href="#"> <img src="./lib/img/calendar2-check.svg" alt="Histórico" /> Histórico </a>
+                <td class="container-tabela">
+                    <a class="card p-3" style=" width: 10rem;" href="#"> <img src="./lib/img/calendar2-check.svg" alt="Histórico" /> <p>Histórico</p> </a>
                 </td>
             </tr>
 
         </table>
 
     </div>
-</div>
+</div></div>

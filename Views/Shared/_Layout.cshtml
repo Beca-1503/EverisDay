@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>@ViewData["Title"] - PizzaEverisDay</title>
+    <title>@ViewData["Title"] - Pizza EverisDay</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 
@@ -14,7 +14,9 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark badge-danger">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">PizzaEverisDay</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    Pizza <b>EverisDay</b>
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -37,10 +39,9 @@
                 </div>
             </div>
         </nav>
-
-
     </header>
-    <div class=" container col-10 badge-warning">
+
+    <div class=" container col-12">
         <div class="container">
             <main role="main" class="pb-3">
                 @RenderBody()
@@ -50,41 +51,11 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            <strong>&copy; 2021 - PizzaEverisDay.</strong>
+            <strong>&copy; 2021 - Pizza EverisDay.</strong>
         </div>
 
     </footer>
-    <!-- Core -->
-    <script src="/assets/js/core/popper.min.js"></script>
-    <script src="/assets/js/core/bootstrap.min.js"></script>
 
-    <!-- Theme JS -->
-    <script src="./lib/bootstrap/dist/js/soft-ui-dashboard.min.js" type="text/javascript"></script>
-
-    <script src="./lib/jquery/dist/jquery.min.js"></script>
-    <script src="./lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./js/site.js" asp-append-version="true"></script>
-
-    <!--   Core JS Files   -->
-    <script src="./lib/bootstrap/dist/js/core/popper.min.js" type="text/javascript"></script>
-    <script src="./lib/bootstrap/dist/js/core/bootstrap.min.js" type="text/javascript"></script>
-    <script src="./lib/bootstrap/dist/js/plugins/perfect-scrollbar.min.js" type="text/javascript"></script>
-    <script src="./lib/bootstrap/dist/js/plugins/moment.min.js"></script>
-
-    <!-- Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-    <script src="./assets/js/plugins/nouislider.min.js"></script>
-
-    <!--  Plugin for the Carousel, full documentation here: http://jedrzejchalubek.com/  -->
-    <script src="./assets/js/plugins/glidejs.min.js"></script>
-
-    <!--	Plugin for Select, full documentation here: https://joshuajohnson.co.uk/Choices/ -->
-    <script src="./assets/js/plugins/choices.min.js" type="text/javascript"></script>
-
-    <!--  Google Maps Plugin    -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-
-    <!-- Control Center for Soft UI Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="./assets/js/soft-dashboard.min.js" type="text/javascript"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
 
