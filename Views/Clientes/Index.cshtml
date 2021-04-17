@@ -44,14 +44,14 @@
                     @Html.DisplayFor(modelItem => item.Telefone)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.CPF">Editar</a> |
-                    <a asp-action="Details" asp-route-id="@item.CPF">Detalhes</a> |
-                    <a asp-action="Delete" asp-route-id="@item.CPF">Apagar</a>
+                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.CPF">Editar</a> |
+                    <a class="btn btn-info" asp-action="Details" asp-route-id="@item.CPF">Detalhes</a> |
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.CPF">Apagar</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
 <p>
-    <a class="btn-primary p-2" asp-action="Create">Criar Cliente</a>
+    <a class="btn btn-primary" asp-action="Create">Criar Cliente</a>
 </p>
