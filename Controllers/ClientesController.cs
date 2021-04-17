@@ -68,7 +68,7 @@ namespace PizzaEverisDay.Controllers
             {
                 repo.Add(cliente);
                 repo.Add(endereco);
-                await repo.SaveChangesAsync();
+                repo.SaveChanges();
             }
             return View(RetornaCidades());
         }

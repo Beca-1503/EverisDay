@@ -1,7 +1,7 @@
-﻿@model PizzaEverisDay.Models.Cliente
+﻿@model PizzaEverisDay.Models.ProdutosParaPedido
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Create Client";
 }
 
 <h1>Cadastrar</h1>
@@ -12,11 +12,11 @@
     <div class="col-md-4">
         <form asp-action="Create" method="post">
 
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div asp-validation-summary="All" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="CPF" class="control-label"></label>
-                <input asp-for="CPF" class="form-control" />
-                <span asp-validation-for="CPF" class="text-danger"></span>
+                <label class="control-label">CPF</label>
+                <input type="text" class="form-control" id="CPF" name="CPF" required>
+                <span class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label class="control-label">Nome Completo</label>
