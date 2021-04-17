@@ -27,7 +27,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.Status_Pedido)
             </th>
-            <th></th>
             <th>
                 Ações
             </th>
@@ -57,14 +56,14 @@
                     @Html.DisplayFor(modelItem => item.Status_Pedido)
                 </td>
                 <td>
-                    <button type="button" class="btn btn-warning" asp-action="Edit" asp-route-id="@item.IdPedido">Editar</button> |
-                    <button type="button" class="btn btn-info" asp-action="Details" asp-route-id="@item.IdPedido">Detalhes</button> |
-                    <button type="button" class="btn btn-danger" asp-action="Delete" asp-route-id="@item.IdPedido">Apagar</button>
+                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.IdPedido">Editar</a> |
+                    <a class="btn btn-info" asp-action="Details" asp-route-id="@item.IdPedido">Detalhes</a> |
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.IdPedido">Apagar</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
 <div class="form-group">
-    <input type="submit" value="Novo Pedid" asp-action="Create" class="btn btn-primary" />
+    <a class="btn btn-primary" asp-action="Create">Novo Pedido</a>
 </div>
