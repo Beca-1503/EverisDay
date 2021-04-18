@@ -19,7 +19,7 @@
 </p>
 
 <h1 align="center">
-    <img alt="Pizza EverisDay" title="#Pizza EverisDay" src="./assets/PizzaEverisDay.jpg" />
+    <img alt="Pizza EverisDay" title="#Pizza EverisDay" src="./Assets/PizzaEverisDay.jpg" />
 </h1>
 
 <h4 align="center"> 
