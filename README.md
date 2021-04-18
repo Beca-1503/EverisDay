@@ -42,7 +42,7 @@ Projeto desenvolvido durante a Beca .NET da Everis. A aplicação consiste em um
 </p>
 
 ---
-## Arquitetura:
+## **:wrench: Arquitetura:
   Model-View-Controller (MVC).
   
 ---
