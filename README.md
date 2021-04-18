@@ -5,15 +5,13 @@
 <p align="center">
   <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/Beca-1503/EverisDay?color=%2304D361">
 
-  <img alt="GitHub language top" src="https://img.shields.io/github/languages/top/Beca-1503/EverisDay">  
-
   <img alt="Repository size" src="https://img.shields.io/github/repo-size/Beca-1503/EverisDay">  
   
   <a href="https://github.com/Beca-1503/EverisDay/commits/master">
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/Beca-1503/EverisDay">
   </a>
     
-   <img alt="License" src="https://img.shields.io/github/license/Beca-1503/EverisDay-brightgreen">
+   <img alt="License" src="https://img.shields.io/github/license/Beca-1503/EverisDay">
 
    <a href="https://github.com/Beca-1503/EverisDay/stargazers">
     <img alt="Stargazers" src="https://img.shields.io/github/stars/Beca-1503/EverisDay?style=social">
