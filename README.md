@@ -28,7 +28,7 @@
 
 <p align="center">
  <a href="#-sobre-o-projeto">Sobre</a> •
- <a href="#-arquitetura">Arquitetura</a> •
+ <a href="#wrench-arquitetura">Arquitetura</a> •
  <a href="#%EF%B8%8F-funcionalidades">Funcionalidades</a> •
  <a href="#-tecnologias">Tecnologias</a> •  
  <a href="#user-content--licença">Licença</a>
@@ -42,7 +42,7 @@ Projeto desenvolvido durante a Beca .NET da Everis. A aplicação consiste em um
 </p>
 
 ---
-## :wrench: Arquitetura:
+## :wrench: Arquitetura
 
   Model-View-Controller (MVC).
   
