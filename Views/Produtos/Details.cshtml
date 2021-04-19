@@ -4,12 +4,14 @@
     ViewData["Title"] = "Details";
 }
 
+<link href="~/css/global.css" rel="stylesheet">
+
 <h1>Detalhes</h1>
 
 <div>
-    <h4>Produto nº @Model.Id_Produto</h4>
+    <h4 class="text-dark">Produto nº @Model.Id_Produto</h4>
     <hr />
-    <dl class="row">
+    <dl class="row text-dark">
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Nome)
         </dt>
@@ -37,6 +39,6 @@
     </dl>
 </div>
 <div>
-    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.Id_Produto">Editar</a> |    |
+    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.Id_Produto">Editar</a>
     <a class="btn btn-secondary" asp-action="Index">Voltar</a>
 </div>
