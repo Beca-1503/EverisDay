@@ -32,14 +32,13 @@ namespace PizzaEverisDay.Controllers
                 return NotFound();
             }
 
-            var cliente = await _context.Cliente
-           .FirstOrDefaultAsync(m => m.CPF == id);
-            if (cliente == null)
-            {
-                return NotFound();
-            }
+            ProdutosParaPedido edit = RetornaCidades();
+            edit.cliente = await _context.Cliente.FindAsync(id);
+            var existe = _context.Cliente_Has_Endereco.ToList().Where(x => x.CPF == edit.cliente.CPF).First();
+            edit.endereco = await _context.Endereco.FindAsync(existe.IdEndereco);
+            
 
-            return View(cliente);
+            return View(edit);
         }
 
         public ActionResult Create()
@@ -50,6 +49,8 @@ namespace PizzaEverisDay.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(string nome, string data_Nascimento, string telefone, string cpf, string logradouro, int numero, string complemento, string bairro, string cep)
         {
+         
+           
 
             Endereco endereco = new Endereco();
             endereco.Logradouro = logradouro;
@@ -68,6 +69,14 @@ namespace PizzaEverisDay.Controllers
             {
                 repo.Add(cliente);
                 repo.Add(endereco);
+                repo.SaveChanges();
+            }
+            Cliente_Has_Endereco clienteE = new Cliente_Has_Endereco();
+            clienteE.CPF = cpf;
+            clienteE.IdEndereco = endereco.IdEndereco;
+            using (var repo = new PizzaContext())
+            {
+                repo.Add(clienteE);                
                 repo.SaveChanges();
             }
             return View(RetornaCidades());
@@ -91,13 +100,17 @@ namespace PizzaEverisDay.Controllers
             {
                 return NotFound();
             }
+            ProdutosParaPedido edit = RetornaCidades();
+            edit.cliente = await _context.Cliente.FindAsync(id);
+            var existe = _context.Cliente_Has_Endereco.ToList().Where(x => x.CPF == edit.cliente.CPF).First();
+            edit.endereco = await _context.Endereco.FindAsync(existe.IdEndereco);
 
             var cliente = await _context.Cliente.FindAsync(id);
             if (cliente == null)
             {
                 return NotFound();
             }
-            return View(cliente);
+            return View(edit);
         }
 
         // POST: Clientes/Edit/5
@@ -105,8 +118,10 @@ namespace PizzaEverisDay.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("CPF,Nome,Data_Nascimento,Telefone")] Cliente cliente)
+        public async Task<IActionResult> Edit(string id, [Bind("CPF,Nome,Data_Nascimento,Telefone")] Cliente cliente, 
+            [Bind("IdEndereco,Logradouro,Numero,Complemento,Bairro, CEP")] Endereco endereco, string IdCidade)
         {
+            endereco.IdCidade = Convert.ToInt32(Request.Form["IdCidade"]);
             if (id != cliente.CPF)
             {
                 return NotFound();
@@ -117,7 +132,9 @@ namespace PizzaEverisDay.Controllers
                 try
                 {
                     _context.Update(cliente);
+                    _context.Update(endereco);
                     await _context.SaveChangesAsync();
+                    
                 }
                 catch (DbUpdateConcurrencyException)
                 {

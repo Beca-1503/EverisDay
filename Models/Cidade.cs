@@ -10,7 +10,7 @@ namespace PizzaEverisDay.Models
     {
         [Key]
         public int IdCidade { get; set; }
-        public string Estado { get; set; }
+
         public string Uf { get; set; }
         public string Nome { get; set; }
     }
