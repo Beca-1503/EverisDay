@@ -4,11 +4,13 @@
     ViewData["Title"] = "Create";
 }
 
+<link href="~/css/global.css" rel="stylesheet">
+
 <h1>Novo</h1>
 
-<h4>Pedido</h4>
+<h4 class="text-dark">Pedido</h4>
 <hr />
-<div class="row">
+<div class="row text-dark">
     <div class="col-md-12">
         <form asp-action="Cadastrar">
             <select name="CPF">
@@ -71,7 +73,7 @@
                 }
             </table>
             <div class="form-group">
-                <input type="submit" value="Pedir" class="btn btn-primary" />
+                <input type="submit" value="Pedir" class="btn btn-info" />
                 <a class="btn btn-secondary" asp-action="Index">Voltar</a>
             </div>
         </form>
