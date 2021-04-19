@@ -32,14 +32,13 @@ namespace PizzaEverisDay.Controllers
                 return NotFound();
             }
 
-            var cliente = await _context.Cliente
-           .FirstOrDefaultAsync(m => m.CPF == id);
-            if (cliente == null)
-            {
-                return NotFound();
-            }
+            ProdutosParaPedido edit = RetornaCidades();
+            edit.cliente = await _context.Cliente.FindAsync(id);
+            var existe = _context.Cliente_Has_Endereco.ToList().Where(x => x.CPF == edit.cliente.CPF).First();
+            edit.endereco = await _context.Endereco.FindAsync(existe.IdEndereco);
+            
 
-            return View(cliente);
+            return View(edit);
         }
 
         public ActionResult Create()
