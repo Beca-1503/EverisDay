@@ -43,6 +43,17 @@ namespace PizzaEverisDay.Controllers
 
             return View(pedido);
         }
+        public ProdutosParaPedido RetornaProdutos()
+        {
+            ProdutosParaPedido ListaProdutos = new ProdutosParaPedido();
+
+            using (var repo = new PizzaContext())
+            {
+                var produto = repo.Produtos.ToList();
+                ListaProdutos.ListaProduto = produto;
+            }
+            return ListaProdutos;
+        }
 
         // GET: pedidoes/Create
         public ActionResult Create()
@@ -98,32 +109,32 @@ namespace PizzaEverisDay.Controllers
                 repo.AddRange(listaProdutos);
                 repo.SaveChanges();
             }
-            return Content("Pedido Realizado!");
+            return View();
         }
          
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int id)
         {
             if (id == null)
             {
                 return NotFound();
             }
+            ProdutosParaPedido edit = RetornaProdutos();
+            edit.Pedido = await _context.Pedido.FindAsync(id);
+            
+            var existe = _context.Produtos.ToList().Where(x => x.Id_Produto == id).First();
+            edit.Produtos = existe;   
 
-            var pedido = await _context.Pedido.FindAsync(id);
-            if (pedido == null)
-            {
-                return NotFound();
-            }
-            return View(pedido);
+            return View(edit);
         }
 
-        // POST: pedidoes/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdPedido,CPF,Data_Pedido,Preco_Total,Forma_De_Pagamento,Status_Pedido")] Pedido pedido)
+        public async Task<IActionResult> Edit(int id, [Bind("IdPedido,CPF,Data_Pedido,Preco_Total,Forma_De_Pagamento,Status_Pedido")] Pedido pedido,
+            [Bind("Id_Produto,Nome,Preco,Tamanho")] string Descricao, Produtos produtos)
         {
-            if (id != pedido.IdPedido)
+            produtos.Descricao = Request.Form["Descricao"];
+            if (id != pedido.IdPedido) 
             {
                 return NotFound();
             }
@@ -132,6 +143,8 @@ namespace PizzaEverisDay.Controllers
             {
                 try
                 {
+                    
+                    _context.Update(produtos);
                     _context.Update(pedido);
                     await _context.SaveChangesAsync();
                 }

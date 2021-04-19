@@ -12,7 +12,9 @@ namespace PizzaEverisDay.Models
         public List<Cidade> ListaCidade = new List<Cidade>();
         public Endereco endereco = new Endereco();
         public Cliente cliente = new Cliente();
-            
+        public Produtos Produtos = new Produtos();
+        public Pedido Pedido = new Pedido();
+
     }
 }
 
