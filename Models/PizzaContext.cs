@@ -19,7 +19,7 @@ namespace PizzaEverisDay.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-6NBUDEN;Initial Catalog=Pizza;User ID=sa;Password=38797723");
+            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-HSEEB7N;Initial Catalog=Pizza;Integrated Security=True");
         }
 
         public DbSet<PizzaEverisDay.Models.Item> Item { get; set; }

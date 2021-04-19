@@ -40,8 +40,38 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.ListaCidade.First(x => x.IdCidade == model.endereco.IdCidade).Uf)
         </dd>
-        
-        
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.endereco.Logradouro)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.endereco.Logradouro)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.endereco.Numero)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.endereco.Numero)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.endereco.Complemento)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.endereco.Complemento)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.endereco.Bairro)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.endereco.Bairro)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.endereco.CEP)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.endereco.CEP)
+        </dd>
+
+
     </dl>
 </div>
 <div>
