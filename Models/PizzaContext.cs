@@ -15,12 +15,20 @@ namespace PizzaEverisDay.Models
         public DbSet<Endereco> Endereco { get; set; }
         public DbSet<Produtos> Produtos { get; set; }
         public DbSet<Cidade> Cidade { get; set; }
-        public DbSet<Cliente_Has_Endereco> Cliente_Has_Endereco { get; set; }
+        public virtual DbSet<Cliente_Has_Endereco> Cliente_Has_Endereco { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-HSEEB7N;Initial Catalog=Pizza;Integrated Security=True");
+            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-6NBUDEN;Initial Catalog=Pizza;User ID=sa;Password=38797723");
         }
 
         public DbSet<PizzaEverisDay.Models.Item> Item { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Cliente_Has_Endereco>().HasKey(vf => new { vf.CPF, vf.IdEndereco });
+        }
+        
+
+        
     }
 }

@@ -11,6 +11,7 @@ namespace PizzaEverisDay.Models
         
     public class Cliente_Has_Endereco
     {
+        [Key]
         public string CPF { get; set; }
         [Key]
         public int IdEndereco { get; set; }
