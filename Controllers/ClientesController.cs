@@ -50,6 +50,8 @@ namespace PizzaEverisDay.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(string nome, string data_Nascimento, string telefone, string cpf, string logradouro, int numero, string complemento, string bairro, string cep)
         {
+           
+           
 
             Endereco endereco = new Endereco();
             endereco.Logradouro = logradouro;
@@ -68,6 +70,14 @@ namespace PizzaEverisDay.Controllers
             {
                 repo.Add(cliente);
                 repo.Add(endereco);
+                repo.SaveChanges();
+            }
+            Cliente_Has_Endereco clienteE = new Cliente_Has_Endereco();
+            clienteE.CPF = cpf;
+            clienteE.IdEndereco = endereco.IdEndereco;
+            using (var repo = new PizzaContext())
+            {
+                repo.Add(clienteE);                
                 repo.SaveChanges();
             }
             return View(RetornaCidades());
@@ -105,7 +115,7 @@ namespace PizzaEverisDay.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("CPF,Nome,Data_Nascimento,Telefone")] Cliente cliente)
+        public async Task<IActionResult> Edit(string id, [Bind("CPF,Nome,Data_Nascimento,Telefone")] Cliente cliente )
         {
             if (id != cliente.CPF)
             {

@@ -15,9 +15,10 @@ namespace PizzaEverisDay.Models
         public DbSet<Endereco> Endereco { get; set; }
         public DbSet<Produtos> Produtos { get; set; }
         public DbSet<Cidade> Cidade { get; set; }
+        public DbSet<Cliente_Has_Endereco> Cliente_Has_Endereco { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Pizza;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-HSEEB7N;Initial Catalog=Pizza;Integrated Security=True");
         }
 
         public DbSet<PizzaEverisDay.Models.Item> Item { get; set; }
