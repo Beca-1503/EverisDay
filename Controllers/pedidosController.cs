@@ -148,5 +148,10 @@ namespace PizzaEverisDay.Controllers
         {
             return _context.Pedido.Any(e => e.IdPedido == id);
         }
+        public async Task<IActionResult> PedidosEmAndamento()
+        {
+            var pedidos = _context.Pedido.Where(x => x.Status_Pedido != "Entregue" && x.Status_Pedido != "Cancelado").ToList();
+            return View("Index", pedidos);
+        }
     }
 }
