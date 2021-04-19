@@ -4,11 +4,10 @@
     ViewData["Title"] = "Index";
 }
 
+<link href="~/css/global.css" rel="stylesheet">
+
 <h1>Produtos</h1>
 
-<p>
-    <a class="btn btn-primary" asp-action="Create">Criar Novo</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -54,3 +53,7 @@
         }
     </tbody>
 </table>
+
+<p>
+    <a class="btn btn-info" asp-action="Create">Criar Novo</a>
+</p>
