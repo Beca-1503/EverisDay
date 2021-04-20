@@ -52,7 +52,6 @@ Projeto desenvolvido durante a Beca .NET da Everis. A aplicação consiste em um
  - [x] CRUD de produtos;
  - [x] CRUD de usuários;
  - [x] CRUD de pedidos;
- - [ ] Testes.
 
 ---
 ## 🛠 Tecnologias
