@@ -98,7 +98,7 @@ namespace PizzaEverisDay.Controllers
                 repo.AddRange(listaProdutos);
                 repo.SaveChanges();
             }
-            return Content("Pedido Realizado!");
+            return RedirectToAction("Index");
         }
          
         public async Task<IActionResult> Edit(int? id)
