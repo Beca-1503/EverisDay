@@ -130,11 +130,11 @@ namespace PizzaEverisDay.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdPedido,CPF,Data_Pedido,Preco_Total,Forma_De_Pagamento,Status_Pedido")] Pedido pedido,
-            [Bind("Id_Produto,Nome,Preco,Tamanho")] string Descricao, Produtos produtos)
+        public async Task<IActionResult> Edit(int id, [Bind("FormaPagamento,StatusDoPedido")] ProdutosParaPedido pedido)
         {
-            produtos.Descricao = Request.Form["Descricao"];
-            if (id != pedido.IdPedido) 
+            
+
+            if (id != pedido.Pedido.IdPedido) 
             {
                 return NotFound();
             }
@@ -143,14 +143,14 @@ namespace PizzaEverisDay.Controllers
             {
                 try
                 {
-                    
-                    _context.Update(produtos);
+                    pedido.Pedido.Status_Pedido = Request.Form["StatusDoPedido"];
+                    pedido.Pedido.Forma_De_Pagamento = Request.Form["FormaPagamento"];
                     _context.Update(pedido);
-                    await _context.SaveChangesAsync();
+                    _context.SaveChanges();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!pedidoExists(pedido.IdPedido))
+                    if (!pedidoExists(pedido.Pedido.IdPedido))
                     {
                         return NotFound();
                     }

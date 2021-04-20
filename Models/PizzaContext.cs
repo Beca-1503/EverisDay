@@ -16,6 +16,8 @@ namespace PizzaEverisDay.Models
         public DbSet<Produtos> Produtos { get; set; }
         public DbSet<Cidade> Cidade { get; set; }
         public virtual DbSet<Cliente_Has_Endereco> Cliente_Has_Endereco { get; set; }
+  
+     
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -27,6 +29,7 @@ namespace PizzaEverisDay.Models
         {
             modelBuilder.Entity<Cliente_Has_Endereco>().HasKey(vf => new { vf.CPF, vf.IdEndereco });
         }
+
         
 
         
